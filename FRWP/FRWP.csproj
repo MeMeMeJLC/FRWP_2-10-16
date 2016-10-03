@@ -208,11 +208,16 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PlayerController.cs" />
+    <Compile Include="DAL\RefereeConfiguration.cs" />
     <Compile Include="DAL\RefereeContext.cs" />
     <Compile Include="DAL\RefereeInitializer.cs" />
+    <Compile Include="DAL\RefereeInterceptorLogging.cs" />
+    <Compile Include="DAL\RefereeInterceptorTransientErrors.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="Logging\Logger.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\GamePlayer.cs" />
