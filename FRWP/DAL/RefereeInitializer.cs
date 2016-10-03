@@ -18,7 +18,6 @@ namespace FRWP.DAL
             new Player{JerseyNumber=23, FirstMidName="Bob",LastName="Jones",DateCreated=DateTime.Parse("2016-09-13"), TeamID=1},
             new Player{JerseyNumber=3, FirstMidName="David",LastName="Smith",DateCreated=DateTime.Parse("2016-09-11"), TeamID=1},
             new Player{JerseyNumber=14, FirstMidName="Steve",LastName="Quant",DateCreated=DateTime.Parse("2016-09-28"), TeamID=1},
-            new Player{JerseyNumber=4, FirstMidName="Hiro",LastName="Smith",DateCreated=DateTime.Parse("2016-09-14"), TeamID=1},
             new Player{JerseyNumber=33, FirstMidName="John",LastName="Xi",DateCreated=DateTime.Parse("2016-08-01"), TeamID=2},
             new Player{JerseyNumber=22, FirstMidName="Samuel",LastName="Cook",DateCreated=DateTime.Parse("2016-07-01"), TeamID=2},
             new Player{JerseyNumber=11, FirstMidName="Timothy",LastName="Lower",DateCreated=DateTime.Parse("2016-06-01"), TeamID=2},
