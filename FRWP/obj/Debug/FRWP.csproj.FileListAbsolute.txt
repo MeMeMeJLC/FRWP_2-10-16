@@ -86,3 +86,6 @@ D:\VS2015 projects\FRWP_2-10-16\FRWP\bin\PagedList.xml
 D:\VS2015 projects\FRWP_2-10-16\FRWP\bin\PagedList.Mvc.xml
 D:\VS2015 projects\FRWP_2-10-16\FRWP\obj\Debug\FRWP.Migrations.InitialCreate.resources
 D:\VS2015 projects\FRWP_2-10-16\FRWP\obj\Debug\FRWP.csproj.GenerateResource.Cache
+D:\VS2015 projects\FRWP_2-10-16\FRWP\obj\Debug\FRWP.Migrations.MaxLengthOnNames.resources
+D:\VS2015 projects\FRWP_2-10-16\FRWP\obj\Debug\FRWP.Migrations.ColumnFirstNameAndJerseyNum.resources
+D:\VS2015 projects\FRWP_2-10-16\FRWP\obj\Debug\FRWP.Migrations.ColumnFirstNameAndJerseyNum1.resources

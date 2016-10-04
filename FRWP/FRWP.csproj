@@ -222,13 +222,27 @@
     <Compile Include="Migrations\201610030053377_InitialCreate.Designer.cs">
       <DependentUpon>201610030053377_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610030311147_MaxLengthOnNames.cs" />
+    <Compile Include="Migrations\201610030311147_MaxLengthOnNames.Designer.cs">
+      <DependentUpon>201610030311147_MaxLengthOnNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610030321114_ColumnFirstNameAndJerseyNum.cs" />
+    <Compile Include="Migrations\201610030321114_ColumnFirstNameAndJerseyNum.Designer.cs">
+      <DependentUpon>201610030321114_ColumnFirstNameAndJerseyNum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610030331310_ColumnFirstNameAndJerseyNum1.cs" />
+    <Compile Include="Migrations\201610030331310_ColumnFirstNameAndJerseyNum1.Designer.cs">
+      <DependentUpon>201610030331310_ColumnFirstNameAndJerseyNum1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\GamePlayer.cs" />
+    <Compile Include="Models\Goal.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\Team.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\PlayerCreatedDateGroup.cs" />
@@ -248,6 +262,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\FRWP31016 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -318,6 +333,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610030053377_InitialCreate.resx">
       <DependentUpon>201610030053377_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610030311147_MaxLengthOnNames.resx">
+      <DependentUpon>201610030311147_MaxLengthOnNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610030321114_ColumnFirstNameAndJerseyNum.resx">
+      <DependentUpon>201610030321114_ColumnFirstNameAndJerseyNum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610030331310_ColumnFirstNameAndJerseyNum1.resx">
+      <DependentUpon>201610030331310_ColumnFirstNameAndJerseyNum1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

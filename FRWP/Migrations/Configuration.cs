@@ -28,7 +28,16 @@ namespace FRWP.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            /*var teams = new List<Team>
+            {
+                new Team { TeamID=1, Name="Lions"},
+                new Team {TeamID=2, Name="Tigers" },
+                new Team { TeamID=3, Name="Wolves" }
 
+            };
+            teams.ForEach(s => context.Teams.AddOrUpdate(p => p.Name, s));
+            context.SaveChanges();*/
+            
             var players = new List<Player>
             {
             new Player{JerseyNumber=5, FirstMidName="Carson",LastName="Alexander",DateCreated=DateTime.Parse("2016-09-01"), TeamID=1},
@@ -55,6 +64,17 @@ namespace FRWP.Migrations
             };
             games.ForEach(s => context.Games.AddOrUpdate(p => p.Description, s));
             context.SaveChanges();
+
+           /* var goals = new List<Goal>
+            {
+                new Models.Goal {GamePlayerID=1, IsOwnGoal=false, TimeScored=new TimeSpan(00,02,23) },
+                new Models.Goal {GamePlayerID=4, IsOwnGoal=true, TimeScored=new TimeSpan(00,05,24) },
+                new Models.Goal {GamePlayerID=1, IsOwnGoal=false, TimeScored=new TimeSpan(00,22,50) },
+                new Models.Goal {GamePlayerID=4, IsOwnGoal=false, TimeScored=new TimeSpan(00,58,12) }
+
+            };
+            goals.ForEach(s => context.Goals.AddOrUpdate(p => p.TimeScored, s));
+            context.SaveChanges();*/
 
             var gamePlayers = new List<GamePlayer>
             {

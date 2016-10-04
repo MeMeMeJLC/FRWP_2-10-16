@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="FRWP31016" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\VS2015\ projects\\FRWP_2-10-16\\FRWP\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^D:\\VS2015\ projects\\FRWP_2-10-16\\FRWP\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="DefaultConnection_ConnectionString" tags="">
+    <parameterEntry kind="XmlFile" scope="D:\\VS2015\ projects\\FRWP_2-10-16\\FRWP\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="RefereeContext-Web.config Connection String" description="" value="Data Source=tcp:frwp31016.database.windows.net,1433;Initial Catalog=FRWP;Persist Security Info=False;User ID=username;Password=P@$$w0rd;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False" tags="">
+    <parameterEntry kind="XmlFile" scope="D:\\VS2015\ projects\\FRWP_2-10-16\\FRWP\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='RefereeContext']/@connectionString" />
+  </parameter>
+</parameters>
