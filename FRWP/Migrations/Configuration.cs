@@ -67,6 +67,16 @@ namespace FRWP.Migrations
             goals.ForEach(s => context.Goals.AddOrUpdate(p => p.TimeScored, s));
             context.SaveChanges();
 
+            var penaltyTypes = new List<PenaltyType>
+            {
+                new PenaltyType {Code="Y1", Description="Unsporting behaviour" },
+                new PenaltyType {Code="Y2", Description="Dissent by word or action" },
+                new PenaltyType {Code="R1", Description="Serious foul play" },
+                new PenaltyType {Code="R2", Description="Violent conduct" },
+            };
+            penaltyTypes.ForEach(s => context.PenaltyTypes.AddOrUpdate(p => p.Code, s));
+            context.SaveChanges();
+
             var gamePlayers = new List<GamePlayer>
             {
                 new GamePlayer {

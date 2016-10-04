@@ -210,6 +210,7 @@
     <Compile Include="Controllers\GoalController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PenaltyTypeController.cs" />
     <Compile Include="Controllers\PlayerController.cs" />
     <Compile Include="DAL\RefereeConfiguration.cs" />
     <Compile Include="DAL\RefereeContext.cs" />
@@ -245,12 +246,17 @@
     <Compile Include="Migrations\201610040119228_GameTime.Designer.cs">
       <DependentUpon>201610040119228_GameTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610040253110_penaltytypeadded.cs" />
+    <Compile Include="Migrations\201610040253110_penaltytypeadded.Designer.cs">
+      <DependentUpon>201610040253110_penaltytypeadded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\GamePlayer.cs" />
     <Compile Include="Models\Goal.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\PenaltyType.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -341,6 +347,11 @@
     <Content Include="Views\Goal\Details.cshtml" />
     <Content Include="Views\Goal\Edit.cshtml" />
     <Content Include="Views\Goal\Index.cshtml" />
+    <Content Include="Views\PenaltyType\Create.cshtml" />
+    <Content Include="Views\PenaltyType\Delete.cshtml" />
+    <Content Include="Views\PenaltyType\Details.cshtml" />
+    <Content Include="Views\PenaltyType\Edit.cshtml" />
+    <Content Include="Views\PenaltyType\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -374,6 +385,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610040119228_GameTime.resx">
       <DependentUpon>201610040119228_GameTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610040253110_penaltytypeadded.resx">
+      <DependentUpon>201610040253110_penaltytypeadded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

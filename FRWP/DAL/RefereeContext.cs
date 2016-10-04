@@ -19,6 +19,7 @@ namespace FRWP.DAL
         public DbSet<Player> Players { get; set; }
         //public DbSet<Team> Teams { get; set; }
         public DbSet<Goal> Goals { get; set; }
+        public DbSet<PenaltyType> PenaltyTypes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
