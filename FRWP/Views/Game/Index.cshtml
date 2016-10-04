@@ -1,45 +1,85 @@
-﻿@model IEnumerable<FRWP.Models.Game>
+﻿@model FRWP.ViewModels.GameIndexData
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Games";
 }
 
-<h2>Index</h2>
+<h2>Games</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New Game", "Create")
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GameDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GameTime)
-        </th>
+        <th>Game Date</th>
+        <th>Game Time</th>
+        <th>Game Description</th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GameDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GameTime)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.GameID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.GameID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.GameID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model.Games)
+    {
+        string selectedRow = "";
+        if (item.GameID == ViewBag.GameID)
+        {
+            selectedRow = "success";
+        }
+        <tr class="@selectedRow">
+            <td>
+                @Html.DisplayFor(modelItem => item.GameDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.ActionLink("Select", "Index", new { id = item.GameID }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.GameID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.GameID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.GameID })
+            </td>
+        </tr>
+
+    }
 
 </table>
+
+@if (Model.GamePlayers != null)
+{
+    <h3>Players in the game selected above</h3>
+    <a href="@Url.Content("../../GamePlayer/Create")">Add a player to this game</a>
+    <table class="table">
+        <tr>
+            <th>Team</th>
+            <th>Jersey Number</th>
+            <th>Name</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.GamePlayers)
+        {
+            string selectedRow = "";
+            if (item.GamePlayerID == ViewBag.GamePlayerID)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @item.Player.TeamID
+                </td>
+                <td>
+                    @item.Player.JerseyNumber
+                </td>
+                <td>
+                    @item.Player.FullName
+                </td>
+                <td>
+
+                </td>
+            </tr>
+        }
+
+    </table>
+}

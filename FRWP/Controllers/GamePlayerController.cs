@@ -8,127 +8,119 @@ using System.Web;
 using System.Web.Mvc;
 using FRWP.DAL;
 using FRWP.Models;
-using FRWP.ViewModels;
 
 namespace FRWP.Controllers
 {
-    public class GameController : Controller
+    public class GamePlayerController : Controller
     {
         private RefereeContext db = new RefereeContext();
 
-        // GET: Game
-        public ActionResult Index(int? id, int? courseID)
+        // GET: GamePlayer
+        public ActionResult Index()
         {
-            var viewModel = new GameIndexData();
-            viewModel.Games = db.Games
-                .OrderBy(i => i.GameDate);
-                /*.Include(i => i.OfficeAssignment)
-                .Include(i => i.Courses.Select(c => c.Department))
-                .OrderBy(i => i.LastName);*/
+            var gamePlayers = db.GamePlayers.Include(g => g.Game).Include(g => g.Player);
+            return View(gamePlayers.ToList());
+        }
 
-            if (id != null)
-            {
-                ViewBag.GameID = id.Value;
-                viewModel.GamePlayers = viewModel.Games.Where(
-                    i => i.GameID == id.Value).Single().GamePlayers;
-            }
-
-            return View(viewModel);
-        
-        //return View(db.Games.ToList());
-    }
-
-        // GET: Game/Details/5
+        // GET: GamePlayer/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Game game = db.Games.Find(id);
-            if (game == null)
+            GamePlayer gamePlayer = db.GamePlayers.Find(id);
+            if (gamePlayer == null)
             {
                 return HttpNotFound();
             }
-            return View(game);
+            return View(gamePlayer);
         }
 
-        // GET: Game/Create
+        // GET: GamePlayer/Create
         public ActionResult Create()
         {
+            ViewBag.GameID = new SelectList(db.Games, "GameID", "Description");
+            ViewBag.PlayerID = new SelectList(db.Players, "ID", "LastName");
             return View();
         }
 
-        // POST: Game/Create
+        // POST: GamePlayer/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GameID,Description,GameDate, GameTime")] Game game)
+        public ActionResult Create([Bind(Include = "GamePlayerID,PlayerID,GameID,IsStartingSubstitute,IsCaptain")] GamePlayer gamePlayer)
         {
             if (ModelState.IsValid)
             {
-                db.Games.Add(game);
+                db.GamePlayers.Add(gamePlayer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(game);
+            ViewBag.GameID = new SelectList(db.Games, "GameID", "Description", gamePlayer.GameID);
+            ViewBag.PlayerID = new SelectList(db.Players, "ID", "LastName", gamePlayer.PlayerID);
+            return View(gamePlayer);
         }
 
-        // GET: Game/Edit/5
+        // GET: GamePlayer/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Game game = db.Games.Find(id);
-            if (game == null)
+            GamePlayer gamePlayer = db.GamePlayers.Find(id);
+            if (gamePlayer == null)
             {
                 return HttpNotFound();
             }
-            return View(game);
+            ViewBag.GameID = new SelectList(db.Games, "GameID", "Description", gamePlayer.GameID);
+            ViewBag.PlayerID = new SelectList(db.Players, "ID", "LastName", gamePlayer.PlayerID);
+            return View(gamePlayer);
         }
 
-        // POST: Game/Edit/5
+        // POST: GamePlayer/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "GameID,Description,GameDate, GameTime")] Game game)
+        public ActionResult Edit([Bind(Include = "GamePlayerID,PlayerID,GameID,IsStartingSubstitute,IsCaptain")] GamePlayer gamePlayer)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(game).State = EntityState.Modified;
+                db.Entry(gamePlayer).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(game);
+            ViewBag.GameID = new SelectList(db.Games, "GameID", "Description", gamePlayer.GameID);
+            ViewBag.PlayerID = new SelectList(db.Players, "ID", "LastName", gamePlayer.PlayerID);
+            return View(gamePlayer);
         }
 
-        // GET: Game/Delete/5
+        // GET: GamePlayer/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Game game = db.Games.Find(id);
-            if (game == null)
+            GamePlayer gamePlayer = db.GamePlayers.Find(id);
+            if (gamePlayer == null)
             {
                 return HttpNotFound();
             }
-            return View(game);
+            return View(gamePlayer);
         }
 
-        // POST: Game/Delete/5
+        // POST: GamePlayer/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Game game = db.Games.Find(id);
-            db.Games.Remove(game);
+            GamePlayer gamePlayer = db.GamePlayers.Find(id);
+            db.GamePlayers.Remove(gamePlayer);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

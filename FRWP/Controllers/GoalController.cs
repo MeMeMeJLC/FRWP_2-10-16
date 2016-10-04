@@ -8,127 +8,115 @@ using System.Web;
 using System.Web.Mvc;
 using FRWP.DAL;
 using FRWP.Models;
-using FRWP.ViewModels;
 
 namespace FRWP.Controllers
 {
-    public class GameController : Controller
+    public class GoalController : Controller
     {
         private RefereeContext db = new RefereeContext();
 
-        // GET: Game
-        public ActionResult Index(int? id, int? courseID)
+        // GET: Goal
+        public ActionResult Index()
         {
-            var viewModel = new GameIndexData();
-            viewModel.Games = db.Games
-                .OrderBy(i => i.GameDate);
-                /*.Include(i => i.OfficeAssignment)
-                .Include(i => i.Courses.Select(c => c.Department))
-                .OrderBy(i => i.LastName);*/
+            var goals = db.Goals.Include(g => g.GamePlayer);
+            return View(goals.ToList());
+        }
 
-            if (id != null)
-            {
-                ViewBag.GameID = id.Value;
-                viewModel.GamePlayers = viewModel.Games.Where(
-                    i => i.GameID == id.Value).Single().GamePlayers;
-            }
-
-            return View(viewModel);
-        
-        //return View(db.Games.ToList());
-    }
-
-        // GET: Game/Details/5
+        // GET: Goal/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Game game = db.Games.Find(id);
-            if (game == null)
+            Goal goal = db.Goals.Find(id);
+            if (goal == null)
             {
                 return HttpNotFound();
             }
-            return View(game);
+            return View(goal);
         }
 
-        // GET: Game/Create
+        // GET: Goal/Create
         public ActionResult Create()
         {
+            ViewBag.GamePlayerID = new SelectList(db.GamePlayers, "GamePlayerID", "GamePlayerID");
             return View();
         }
 
-        // POST: Game/Create
+        // POST: Goal/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GameID,Description,GameDate, GameTime")] Game game)
+        public ActionResult Create([Bind(Include = "ID,IsOwnGoal,GamePlayerID,TimeScored")] Goal goal)
         {
             if (ModelState.IsValid)
             {
-                db.Games.Add(game);
+                db.Goals.Add(goal);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(game);
+            ViewBag.GamePlayerID = new SelectList(db.GamePlayers, "GamePlayerID", "GamePlayerID", goal.GamePlayerID);
+            return View(goal);
         }
 
-        // GET: Game/Edit/5
+        // GET: Goal/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Game game = db.Games.Find(id);
-            if (game == null)
+            Goal goal = db.Goals.Find(id);
+            if (goal == null)
             {
                 return HttpNotFound();
             }
-            return View(game);
+            ViewBag.GamePlayerID = new SelectList(db.GamePlayers, "GamePlayerID", "GamePlayerID", goal.GamePlayerID);
+            return View(goal);
         }
 
-        // POST: Game/Edit/5
+        // POST: Goal/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "GameID,Description,GameDate, GameTime")] Game game)
+        public ActionResult Edit([Bind(Include = "ID,IsOwnGoal,GamePlayerID,TimeScored")] Goal goal)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(game).State = EntityState.Modified;
+                db.Entry(goal).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(game);
+            ViewBag.GamePlayerID = new SelectList(db.GamePlayers, "GamePlayerID", "GamePlayerID", goal.GamePlayerID);
+            return View(goal);
         }
 
-        // GET: Game/Delete/5
+        // GET: Goal/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Game game = db.Games.Find(id);
-            if (game == null)
+            Goal goal = db.Goals.Find(id);
+            if (goal == null)
             {
                 return HttpNotFound();
             }
-            return View(game);
+            return View(goal);
         }
 
-        // POST: Game/Delete/5
+        // POST: Goal/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Game game = db.Games.Find(id);
-            db.Games.Remove(game);
+            Goal goal = db.Goals.Find(id);
+            db.Goals.Remove(goal);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

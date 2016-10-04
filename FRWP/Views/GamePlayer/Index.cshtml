@@ -1,0 +1,63 @@
+﻿@model IEnumerable<FRWP.Models.GamePlayer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Game.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Player.FirstMidName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Player.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Player.TeamID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsStartingSubstitute)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsCaptain)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Game.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Player.FirstMidName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Player.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Player.TeamID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsStartingSubstitute)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsCaptain)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.GamePlayerID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GamePlayerID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.GamePlayerID })
+        </td>
+    </tr>
+}
+
+</table>

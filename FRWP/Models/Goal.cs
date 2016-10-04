@@ -13,9 +13,8 @@ namespace FRWP.Models
         public bool IsOwnGoal { get; set; }
         [ForeignKey("GamePlayer")]
         public int GamePlayerID { get; set; }
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Time Scored")]
+        //[DataType(DataType.)]
+        [Display(Name = "Time Scored h:mm:ss")]
         public TimeSpan TimeScored { get; set; }
 
         public virtual GamePlayer GamePlayer { get; set; }
