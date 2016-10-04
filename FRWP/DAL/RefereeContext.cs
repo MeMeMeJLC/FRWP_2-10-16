@@ -20,11 +20,14 @@ namespace FRWP.DAL
         //public DbSet<Team> Teams { get; set; }
         public DbSet<Goal> Goals { get; set; }
         public DbSet<PenaltyType> PenaltyTypes { get; set; }
+        //public DbSet<GamePenalty> GamePenalties { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
         }
+
+        public System.Data.Entity.DbSet<FRWP.Models.GamePenalty> GamePenalties { get; set; }
     }
 }

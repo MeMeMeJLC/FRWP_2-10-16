@@ -137,6 +137,23 @@ namespace FRWP.Migrations
                 }
             }
             context.SaveChanges();
+
+            var penalties = new List<GamePenalty>
+            {
+                new GamePenalty {PenaltyCode="Y1", GamePlayerID=1, TimePenaltyOccurred = new TimeSpan(0,40,52) },
+                new GamePenalty {PenaltyCode="R1", GamePlayerID=3, TimePenaltyOccurred = new TimeSpan(0,57,56) }
+            };
+            //penalties.ForEach(s => context.GamePenalties.AddOrUpdate(p => p.PenaltyCode, s));
+            foreach (GamePenalty e in penalties)
+            {
+                var penaltyInDataBase = context.GamePenalties.Where(
+                    s => s.PenaltyType.Code == e.PenaltyCode).FirstOrDefault();
+                if (penaltyInDataBase == null)
+                {
+                    context.GamePenalties.Add(e);
+                }
+            }
+            context.SaveChanges();
         }
     }
 }

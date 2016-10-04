@@ -92,3 +92,5 @@ D:\VS2015 projects\FRWP_2-10-16\FRWP\obj\Debug\FRWP.Migrations.ColumnFirstNameAn
 D:\VS2015 projects\FRWP_2-10-16\FRWP\obj\Debug\FRWP.Migrations.goalmodel.resources
 D:\VS2015 projects\FRWP_2-10-16\FRWP\obj\Debug\FRWP.Migrations.GameTime.resources
 D:\VS2015 projects\FRWP_2-10-16\FRWP\obj\Debug\FRWP.Migrations.penaltytypeadded.resources
+D:\VS2015 projects\FRWP_2-10-16\FRWP\obj\Debug\FRWP.Migrations.penaltyadded.resources
+D:\VS2015 projects\FRWP_2-10-16\FRWP\obj\Debug\FRWP.Migrations.penaltyadded1.resources

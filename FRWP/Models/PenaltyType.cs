@@ -11,5 +11,8 @@ namespace FRWP.Models
         [Key]
         public string Code { get; set; }
         public string Description { get; set; }
+
+        public virtual ICollection<GamePenalty> GamePenalties { get; set; }
+
     }
 }

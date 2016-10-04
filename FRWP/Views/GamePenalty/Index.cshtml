@@ -1,0 +1,45 @@
+﻿@model IEnumerable<FRWP.Models.GamePenalty>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GamePlayer.GamePlayerID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PenaltyType.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimePenaltyOccurred)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GamePlayer.GamePlayerID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PenaltyType.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimePenaltyOccurred)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PenaltyID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PenaltyID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PenaltyID })
+        </td>
+    </tr>
+}
+
+</table>

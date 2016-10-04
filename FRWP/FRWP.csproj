@@ -206,6 +206,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Controllers\GamePenaltyController.cs" />
     <Compile Include="Controllers\GamePlayerController.cs" />
     <Compile Include="Controllers\GoalController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -250,12 +251,21 @@
     <Compile Include="Migrations\201610040253110_penaltytypeadded.Designer.cs">
       <DependentUpon>201610040253110_penaltytypeadded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610040345064_penaltyadded.cs" />
+    <Compile Include="Migrations\201610040345064_penaltyadded.Designer.cs">
+      <DependentUpon>201610040345064_penaltyadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610040405084_penaltyadded1.cs" />
+    <Compile Include="Migrations\201610040405084_penaltyadded1.Designer.cs">
+      <DependentUpon>201610040405084_penaltyadded1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\GamePlayer.cs" />
     <Compile Include="Models\Goal.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\GamePenalty.cs" />
     <Compile Include="Models\PenaltyType.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Player.cs" />
@@ -352,6 +362,11 @@
     <Content Include="Views\PenaltyType\Details.cshtml" />
     <Content Include="Views\PenaltyType\Edit.cshtml" />
     <Content Include="Views\PenaltyType\Index.cshtml" />
+    <Content Include="Views\GamePenalty\Create.cshtml" />
+    <Content Include="Views\GamePenalty\Delete.cshtml" />
+    <Content Include="Views\GamePenalty\Details.cshtml" />
+    <Content Include="Views\GamePenalty\Edit.cshtml" />
+    <Content Include="Views\GamePenalty\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -388,6 +403,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610040253110_penaltytypeadded.resx">
       <DependentUpon>201610040253110_penaltytypeadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610040345064_penaltyadded.resx">
+      <DependentUpon>201610040345064_penaltyadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610040405084_penaltyadded1.resx">
+      <DependentUpon>201610040405084_penaltyadded1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
