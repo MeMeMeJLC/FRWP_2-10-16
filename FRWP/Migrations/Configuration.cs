@@ -28,15 +28,6 @@ namespace FRWP.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            /*var teams = new List<Team>
-            {
-                new Team { TeamID=1, Name="Lions"},
-                new Team {TeamID=2, Name="Tigers" },
-                new Team { TeamID=3, Name="Wolves" }
-
-            };
-            teams.ForEach(s => context.Teams.AddOrUpdate(p => p.Name, s));
-            context.SaveChanges();*/
             
             var players = new List<Player>
             {
@@ -58,14 +49,14 @@ namespace FRWP.Migrations
 
             var games = new List<Game>
             {
-                new Game { Description="Regional Cup Semi Finals", GameDateTime=DateTime.Parse("2016-10-14") },
-                new Game { Description="Regional Cup Finals", GameDateTime=DateTime.Parse("2016-10-21") },
-                new Game { Description="Regional Cup Quarter Finals", GameDateTime=DateTime.Parse("2016-10-7") }
+                new Game { Description="Regional Cup Semi Finals", GameDate=DateTime.Parse("2016-10-14"), GameTime=DateTime.Parse("12:00:00")},
+                new Game { Description="Regional Cup Finals", GameDate=DateTime.Parse("2016-10-21"), GameTime=DateTime.Parse("14:00:00")},
+                new Game { Description="Regional Cup Quarter Finals", GameDate=DateTime.Parse("2016-10-7"), GameTime=DateTime.Parse("16:00:00") }
             };
             games.ForEach(s => context.Games.AddOrUpdate(p => p.Description, s));
             context.SaveChanges();
 
-           /* var goals = new List<Goal>
+            var goals = new List<Goal>
             {
                 new Models.Goal {GamePlayerID=1, IsOwnGoal=false, TimeScored=new TimeSpan(00,02,23) },
                 new Models.Goal {GamePlayerID=4, IsOwnGoal=true, TimeScored=new TimeSpan(00,05,24) },
@@ -74,7 +65,7 @@ namespace FRWP.Migrations
 
             };
             goals.ForEach(s => context.Goals.AddOrUpdate(p => p.TimeScored, s));
-            context.SaveChanges();*/
+            context.SaveChanges();
 
             var gamePlayers = new List<GamePlayer>
             {

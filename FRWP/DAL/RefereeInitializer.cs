@@ -11,7 +11,7 @@ namespace FRWP.DAL
     {
         protected override void Seed(RefereeContext context)
         {
-            var players = new List<Player>
+           /* var players = new List<Player>
             {
             new Player{JerseyNumber=5, FirstMidName="Carson",LastName="Alexander",DateCreated=DateTime.Parse("2016-09-01"), TeamID=1},
             new Player{JerseyNumber=15, FirstMidName="Carl",LastName="Alan",DateCreated=DateTime.Parse("2016-01-01"), TeamID=1},
@@ -48,9 +48,9 @@ namespace FRWP.DAL
                 new Game { Description="Regional Cup Quarter Finals", GameDateTime=DateTime.Parse("2016-10-7") }
             };
             games.ForEach(s => context.Games.Add(s));
-            context.SaveChanges();
+            context.SaveChanges();*/
         }
-
+        
         
     }
 }

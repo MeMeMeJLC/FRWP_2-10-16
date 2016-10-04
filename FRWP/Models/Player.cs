@@ -37,6 +37,6 @@ namespace FRWP.Models
         }
 
         public virtual ICollection<GamePlayer> GamePlayers { get; set; }
-        public virtual Team Team { get; set; }
+        //public virtual Team Team { get; set; }
     }
 }

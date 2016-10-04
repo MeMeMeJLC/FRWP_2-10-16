@@ -15,10 +15,18 @@ namespace FRWP.Models
 
         [StringLength(50, MinimumLength = 3)]
         public string Description { get; set; }
-        public DateTime GameDateTime { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Game Date")]
+        public DateTime GameDate { get; set; }
 
-       /* [Range(0, 5)]
-        public int Credits { get; set; }*/
+        [DataType(DataType.Time)]
+        [DisplayFormat(DataFormatString = "{0:hh:mm tt}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Game Time")]
+        public DateTime GameTime { get; set; }
+
+        /* [Range(0, 5)]
+         public int Credits { get; set; }*/
 
 
         public virtual ICollection<GamePlayer> GamePlayers { get; set; }
